@@ -8,6 +8,10 @@
                 <td class="product-image"><img v-bind:src="item.src" width="200px"></td>
                 <td>{{item.price}}</td>
                 <td>{{item.count}}</td>
+                <td>
+                    <button class="btn" v-on:click="AddToCart(item)">Add</button> 
+                    <button class="btn" v-on:click="deleteFromCart(item.id)">Delete</button>
+                </td>
             </tr>
         </table>
     </div>
@@ -37,6 +41,9 @@
             
             AddToCart: function(item) {
                 this.$store.commit('addCart',item);
+            },
+            deleteFromCart: function (item) {
+                this.$store.commit('deleteCart',item);
             },
         },
         computed: {
