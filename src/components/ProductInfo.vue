@@ -21,12 +21,12 @@
         },
         mounted: function() {
             this.product = products.find((item) => {
-                return (item.id === Number(this.$route.params.id));
+                return (item.id === Number(this.$route.params.product));
             });
         },
         methods: {
             AddToCart: function(id) {
-                this.$store.commit('addCart',id);
+                this.$store.commit('addCart',product);
             },
         },
     }

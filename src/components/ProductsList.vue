@@ -18,7 +18,7 @@
                     </router-link>
                 </h4>
                 <label>{{item.price}}</label>
-                <button class="btn" v-on:click="AddToCart(item.id)">Add to cart</button>  
+                <button class="btn" v-on:click="AddToCart(item)">Add to cart</button>  
             </div>
         </div>
     </div>
@@ -37,8 +37,8 @@
             this.items = products;
         },
         methods: {
-            AddToCart: function(id) {
-                this.$store.commit('addCart',id);
+            AddToCart: function(item) {
+                this.$store.commit('addCart',item);
             },
         },
         computed: {

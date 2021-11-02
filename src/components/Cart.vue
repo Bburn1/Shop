@@ -2,7 +2,7 @@
     <div class="products">
         <table cellspacing="100px">
 
-            <tr v-for="item in items" v-bind:key="item.id">
+            <tr v-for="item in productsFromCart" v-bind:key="item.id">
                 <td>{{item.id}}</td>
                 <td>{{item.item}}</td>
                 <td class="product-image"><img v-bind:src="item.src" width="200px"></td>
@@ -21,6 +21,7 @@
                 search: '',
                 searchResult: [],
                 cartElements:[],
+                productsFromCart:[],
             };
         },
         
@@ -34,8 +35,8 @@
                  console.log(this.cartElements);
             },
             
-            AddToCart: function(id) {
-                this.$store.commit('addCart',id);
+            AddToCart: function(item) {
+                this.$store.commit('addCart',item);
             },
         },
         computed: {
